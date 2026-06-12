@@ -1,0 +1,23 @@
+name: Daily Finance Brief
+
+on:
+  schedule:
+    # Runs at 2:00 AM UTC = 7:30 AM IST (UTC+5:30)
+    - cron: '0 2 * * *'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  brief:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Trigger Vercel deployment
+        run: |
+          # Call your Vercel function
+          curl -X GET "https://<YOUR_VERCEL_DOMAIN>.vercel.app/" \
+            -H "Content-Type: application/json"
+        env:
+          VERCEL_DOMAIN: ${{ secrets.VERCEL_DOMAIN }}

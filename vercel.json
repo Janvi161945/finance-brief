@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "env": {
+    "TELEGRAM_BOT_TOKEN": "@TELEGRAM_BOT_TOKEN",
+    "TELEGRAM_CHAT_ID": "@TELEGRAM_CHAT_ID",
+    "ANTHROPIC_API_KEY": "@ANTHROPIC_API_KEY",
+    "MAX_AGE_HOURS": "@MAX_AGE_HOURS",
+    "MAX_PER_CATEGORY": "@MAX_PER_CATEGORY"
+  },
+  "buildCommand": "pip install -r requirements.txt",
+  "outputDirectory": ".",
+  "functions": {
+    "api/index.py": {
+      "runtime": "python3.11"
+    }
+  }
+}
